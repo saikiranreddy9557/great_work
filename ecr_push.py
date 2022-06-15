@@ -4,8 +4,7 @@ import base64
 import json
 import os
 
-# acces_key ="AKIAW34VIHH3R4PND75F"
-# secret_key = "UFhlUX6Lf/KYB9/yUn+ZVkBBKkqZWsQcMlnqLP3c"
+
 
 uri  = "public.ecr.aws/g4a1d4c4/example-demo"
 region="ap-south-1"
@@ -14,8 +13,8 @@ LOCAL_REPOSITORY = 'sample-demo'
 
 # repo_name = "example-demo"
 
-acces_key ="AKIAW34VIHH3TRJ5IHSD"
-secret_key = "wRzvCqa8nIcUydaQQ2FL9EpFGWuzNrpAx6lNti91"
+acces_key =""
+secret_key = ""
 
 
 def read_aws_credentials():
