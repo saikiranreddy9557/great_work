@@ -9,8 +9,8 @@ ecr_uri = ecr_url.replace("https://","")
 
 print(ecr_uri)
 
-acces_key ="AKIAW34VIHH3TRJ5IHSD"
-secret_key = "wRzvCqa8nIcUydaQQ2FL9EpFGWuzNrpAx6lNti91"
+acces_key =""
+secret_key = ""
 
 set_access_key_cmd = "aws configure set aws_access_key_id {}".format(acces_key)
 set_secret_key_cmd = "aws configure set aws_secret_access_key {}".format(secret_key)
@@ -61,3 +61,22 @@ def helm_push(commands):
         
 
 print(helm_push(commands))
+
+import os
+path = r"C:\Users\sensai\Desktop\docker_ecr\test-chart-0.1.0.tgz"
+head_tail = os.path.split(path)
+print(type(head_tail[1]))
+file_name = head_tail[1]
+
+repo = "helm-test-chart"
+new_name = repo+"-"+file_name
+print(new_name)
+# import os  
+os.rename(file_name,new_name)
+push_cmd = "helm push helm-test-chart-test-chart-0.1.0.tgz oci://{ecr_uri}/".format(ecr_uri=ecr_uri)
+
+
+push_cmd = "helm push {helm_file} oci://{ecr_uri}/".format(helm_file = new_name,ecr_uri=ecr_uri)
+
+
+commands = [set_access_key_cmd,set_secret_key_cmd,login_cmd,push_cmd]
